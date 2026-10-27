@@ -10,3 +10,5 @@
 ## Lessons
 - Brand kit v3 = Drive folder 1wzVeznNrao2adNaiU_k4X5VVGRkCPxWR; big files: Drive MCP saves to tool-results file, decode its "content" b64.
 - Live posts: 02:58 PT prep writes claude/publish-queue-*.md (Claude project); 08:00 PT run posts Notion rows = Scheduled.
+- Owner rejected synthesized music beds (7 Oct); approved bed = Descript stock 'Ambient Piano #3' (347529175).
+- Descript/jsDelivr CDNs blocked from session; raw.githubusercontent.com works (repo public since 26 Oct).
