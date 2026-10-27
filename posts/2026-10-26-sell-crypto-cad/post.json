@@ -1,0 +1,59 @@
+{
+  "id": "2026-10-26-sell-crypto-cad",
+  "version": "v3",
+  "changes": "v3 (26 Oct 2026): restyled on brand kit v3 (palette, Poppins, swoosh field, vector lockup); copy unchanged. v2 (26 Oct 2026): step 5 names Interac e-Transfer alongside the bank account (founder-approved; checked against Terms v1 §6.1 and §8.5). No settlement-speed wording.",
+  "source": "https://app.notion.com/p/3fa3e422d82c81d39053f2a9d9fd3720",
+  "postDate": "2026-10-26",
+  "size": {
+    "width": 1080,
+    "height": 1350
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "headline": "Selling crypto for *CAD*",
+      "sub": "5 steps, no surprises"
+    },
+    {
+      "kind": "step",
+      "n": 1,
+      "headline": "Sign in and verify",
+      "body": "Sign in at trade.tokennest.com and complete verification (once)."
+    },
+    {
+      "kind": "step",
+      "n": 2,
+      "headline": "Choose what to sell",
+      "body": "Choose the asset and the amount you want to sell."
+    },
+    {
+      "kind": "step",
+      "n": 3,
+      "headline": "See your quote",
+      "body": "You see a quote — the price and the total you'll receive, before you confirm."
+    },
+    {
+      "kind": "step",
+      "n": 4,
+      "headline": "Send to the address shown",
+      "body": "Copy and paste it; check the first and last characters.",
+      "motif": "address-check"
+    },
+    {
+      "kind": "step",
+      "n": 5,
+      "headline": "Receive your CAD",
+      "body": "Once the transfer is confirmed on the network, your CAD is sent to you by Interac e-Transfer or to your bank account."
+    },
+    {
+      "kind": "closing",
+      "headline": "No account balance is held for you at any step.",
+      "body": "It's your crypto until it's sent, then it's your dollars.",
+      "fine": [
+        "Questions? contact@tokennest.com",
+        "TokenNest is operated by Crypto World Trade Center Inc., FINTRAC-registered MSB M23982356."
+      ]
+    }
+  ],
+  "kicker": "Selling crypto for CAD"
+}

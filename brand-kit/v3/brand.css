@@ -1,0 +1,135 @@
+/* TokenNest social template system — v3, 25 Sep 2026
+   Rebuilt against the real Design folder (Google Drive → 03 Social Media),
+   replacing the v1/v2 system that was derived from written briefs alone.
+
+   What changed and why:
+   - ORANGE IS A REAL BRAND COLOUR. Sampled #FF751F from the CTA pill on
+     "TOKENNEST POST STYLE and template.png" and #FE9C4C from the ad set. The
+     old kit documented amber as Thanksgiving-only, which was simply wrong and
+     is why generated work read colder than the live feed.
+   - Poppins, not Manrope, matches the headline face in the published designs.
+     Manrope stays as the fallback so nothing breaks if Poppins is missing.
+   - The background is never flat navy. Every real post carries soft concentric
+     swoosh bands; .field draws them.
+   - The lockup is now true vector (see render.py). No raster logo anywhere. */
+
+@font-face { font-family: "Poppins"; font-weight: 400; src: url("../fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; src: url("../fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; src: url("../fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; src: url("../fonts/poppins-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; src: url("../fonts/poppins-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 700; src: url("../fonts/manrope-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-weight: 800; src: url("../fonts/manrope-latin-800-normal.woff2") format("woff2"); }
+
+:root {
+  --navy:   #181932;
+  --navy-2: #1A1C37;
+  --blue:   #4777AE;
+  --sky:    #60B1F4;
+  --pale:   #C9E8FD;
+  --mist:   #EDF3F9;
+  --white:  #FAFAFE;
+  --orange: #FF751F;   /* CTA pills, highlight words, accent arcs */
+  --orange-lt: #FE9C4C;
+  --red:    #E0605A;   /* myth / scam quotes only */
+  --m: 84px;           /* safe margin, feed */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--navy); }
+body {
+  font-family: "Poppins", "Manrope", sans-serif;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---------------------------------------------------------------- canvases */
+.card { position: relative; overflow: hidden; background: var(--navy); }
+.card.feed  { width: 1080px; height: 1350px; }
+.card.square{ width: 1080px; height: 1080px; }
+.card.story { width: 1080px; height: 1920px; --m: 96px; }
+.card.tg    { width: 1080px; height: 1350px; --m: 84px; }  /* Telegram / WhatsApp cut */
+.card.li    { width: 1200px; height: 1200px; }
+
+.card.light { background: linear-gradient(160deg, #FFFFFF 0%, var(--mist) 55%, #DCE9F6 100%); color: var(--navy); }
+
+/* ------------------------------------------------- background swoosh field */
+/* The published posts never sit on flat navy — they carry wide, very low
+   contrast concentric bands sweeping from the right. */
+.field { position: absolute; inset: 0; pointer-events: none; }
+.field svg { width: 100%; height: 100%; display: block; }
+.field { opacity: .55; filter: blur(1.5px); }
+
+/* --------------------------------------------------------------- furniture */
+.lockup { position: absolute; }
+.lockup svg { display: block; height: 100%; width: auto; }
+.lockup.tl { top: var(--m); left: var(--m); height: 96px; }
+.lockup.bl { bottom: var(--m); left: var(--m); height: 92px; }
+.lockup.br { bottom: var(--m); right: var(--m); height: 92px; }
+
+.url    { position: absolute; font-size: 30px; font-weight: 600; letter-spacing: .01em; color: var(--pale); }
+.url.bl { left: var(--m); bottom: calc(var(--m) + 24px); }
+.url.br { right: var(--m); bottom: calc(var(--m) + 24px); }
+.light .url { color: var(--blue); }
+
+.kicker { position: absolute; top: var(--m); left: var(--m); font-size: 28px; font-weight: 700;
+          letter-spacing: .16em; text-transform: uppercase; color: var(--sky); }
+.count  { position: absolute; top: var(--m); right: var(--m); font-size: 28px; font-weight: 600;
+          color: rgba(201,232,253,.7); }
+
+/* the @token_nest chip that appears on nearly every published post */
+.handle { position: absolute; left: var(--m); bottom: var(--m);
+          display: inline-flex; align-items: center; gap: 14px;
+          padding: 14px 28px 14px 22px; border-radius: 999px;
+          background: rgba(96,177,244,.16); border: 2px solid rgba(96,177,244,.45);
+          font-size: 28px; font-weight: 600; color: var(--pale); }
+.handle svg { width: 34px; height: 34px; }
+
+/* orange CTA pill — bottom centred, as on the style template */
+.cta { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(var(--m) + 8px);
+       padding: 26px 62px; border-radius: 999px; background: var(--orange);
+       color: #FFFFFF; font-size: 32px; font-weight: 700; letter-spacing: .08em;
+       text-transform: uppercase; white-space: nowrap; }
+
+/* ------------------------------------------------------------- type scale */
+.h1 { font-size: 104px; line-height: 1.04; font-weight: 700; letter-spacing: -.02em; }
+.h2 { font-size: 80px;  line-height: 1.08; font-weight: 700; letter-spacing: -.018em; }
+.h3 { font-size: 60px;  line-height: 1.14; font-weight: 600; letter-spacing: -.012em; }
+.p  { font-size: 38px;  line-height: 1.38; font-weight: 400; color: var(--pale); }
+.light .p { color: #41506B; }
+.small { font-size: 26px; line-height: 1.4; font-weight: 500; color: rgba(201,232,253,.85); }
+
+/* the published headline treatment: caps second line in sky, tight and heavy */
+.caps { font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; }
+
+.accent  { color: var(--sky); }
+.accent-o{ color: var(--orange); }
+.muted   { color: var(--pale); }
+.light .muted { color: #5B6B87; }
+
+/* -------------------------------------------------------------- layouts */
+.stack { position: absolute; left: var(--m); right: var(--m); display: flex; flex-direction: column; gap: 32px; }
+.stack.top    { top: 190px; }
+.stack.middle { top: 50%; transform: translateY(-52%); }
+
+/* character slot — Toki sits bottom-right, never behind type */
+.toki { position: absolute; right: 0; bottom: 0; }
+.toki img { display: block; height: 100%; width: auto; }
+.toki.br { right: 20px; bottom: 0; }
+
+.rule { height: 4px; width: 160px; background: var(--sky); border-radius: 2px; }
+.light .rule { background: var(--orange); }
+
+.chip { display: inline-block; padding: 16px 32px; border-radius: 999px;
+        background: rgba(201,232,253,.12); border: 2px solid rgba(201,232,253,.35);
+        font-size: 32px; font-weight: 600; color: var(--pale); }
+
+
+/* --------------------------------------------------- hero family (v3.1) */
+/* The style template gives the headline the left ~60% and lets Toki own the
+   right edge. Without the column cap the caps line runs under his head. */
+.stack.hero { right: auto; width: 560px; top: 170px; gap: 18px; }
+.stack.hero .caps { font-size: 92px; }
+.lockup.ml  { left: var(--m); bottom: 300px; height: 150px; }
+.cta.low    { bottom: 74px; }
