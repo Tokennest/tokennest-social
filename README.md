@@ -21,4 +21,4 @@ copies of Drive › Design › 07 Brand Kit v3 (25 Sep 2026); `fonts/` holds Pop
 
 Toki: `brand-kit/v3/assets/toki-thumbs-up.png` is the Drive original (Drive › 01 Logo & Brand › Toki, 440×921). If it is
 missing the renderer leaves the slot empty and warns. Per the Toki README he never sits on compliance copy.
-Reel audio: `"audio": "pad"` in post.json adds a quiet A-major pad synthesised by ffmpeg (no third-party music).
+Reel audio: the owner rejected synthesised beds (7 Oct); the approved bed is Descript stock "Ambient Piano #3". `"audio": "pad"` exists for drafts only.
