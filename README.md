@@ -16,5 +16,8 @@ The copy checker enforces the org status labels ("Coming soon · Waitlist open" 
 "Coming 2027" for white-label and AI Agent Wallets, PSP/business payouts never available), bans speed,
 guarantee and "licensed" wording, and flags any email or phone number other than the TokenNest contacts.
 
-Not yet in this repo: brand kit v3 palette and fonts (colours in `tools/render.mjs` are placeholders) and the
-Toki mascot art.
+Brand kit v3 lives in `brand-kit/`: `v3/brand.css`, `v3/tokennest-logo.svg` and `v3/README-drive.md` are byte-for-byte
+copies of Drive › Design › 07 Brand Kit v3 (25 Sep 2026); `fonts/` holds Poppins and Manrope (Fontsource 5.3.0, OFL).
+
+Toki: drop `toki-thumbs-up.png` (Drive › 01 Logo & Brand › Toki) into `brand-kit/v3/assets/` and re-render. Until then
+the renderer leaves the slot empty and prints a warning. Per the Toki README he never sits on compliance copy.
