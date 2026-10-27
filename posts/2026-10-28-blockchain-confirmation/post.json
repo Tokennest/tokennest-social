@@ -1,0 +1,19 @@
+{
+  "id": "2026-10-28-blockchain-confirmation",
+  "version": "v1",
+  "changes": "v1 (26 Oct 2026): first render from the Notion row (script unchanged since 15 Oct).",
+  "source": "https://app.notion.com/p/3fa3e422d82c8103be8dfc77c4805f6c",
+  "postDate": "2026-10-28",
+  "size": { "width": 1080, "height": 1920 },
+  "reel": { "secondsPerCard": 3.3, "fade": 0.3 },
+  "still": { "fromSlide": 3, "width": 1080, "height": 1350 },
+  "slides": [
+    { "kind": "text", "text": "You hit send. Nothing happens for a minute. Did it work?" },
+    { "kind": "text", "text": "Your transfer is waiting in a queue to be written into the blockchain.", "accent": "queue" },
+    { "kind": "text", "text": "A confirmation = your transfer has been included in a block.", "accent": "confirmation" },
+    { "kind": "text", "text": "Each new block after it is one more confirmation. More confirmations = harder to reverse.", "accent": "confirmation", "motif": "blocks" },
+    { "kind": "text", "text": "Platforms wait for a set number before they treat funds as received. That's the \"pending\" you see.", "accent": "pending" },
+    { "kind": "text", "text": "The wait is the network, not the platform. It varies by chain and by how busy it is.", "accent": "network" },
+    { "kind": "end", "text": "Pending isn't lost.", "sub": "Protect your nest. Learn before you invest.", "mascot": "toki-thumbs-up" }
+  ]
+}

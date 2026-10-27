@@ -1,0 +1,13 @@
+{
+  "name": "tokennest-social",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TokenNest social cards: post content as data, rendered to PNG/MP4.",
+  "scripts": {
+    "check": "node tools/check-copy.mjs posts",
+    "render": "node tools/render.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
