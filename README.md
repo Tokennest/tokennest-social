@@ -19,5 +19,6 @@ guarantee and "licensed" wording, and flags any email or phone number other than
 Brand kit v3 lives in `brand-kit/`: `v3/brand.css`, `v3/tokennest-logo.svg` and `v3/README-drive.md` are byte-for-byte
 copies of Drive › Design › 07 Brand Kit v3 (25 Sep 2026); `fonts/` holds Poppins and Manrope (Fontsource 5.3.0, OFL).
 
-Toki: drop `toki-thumbs-up.png` (Drive › 01 Logo & Brand › Toki) into `brand-kit/v3/assets/` and re-render. Until then
-the renderer leaves the slot empty and prints a warning. Per the Toki README he never sits on compliance copy.
+Toki: `brand-kit/v3/assets/toki-thumbs-up.png` is the Drive original (Drive › 01 Logo & Brand › Toki, 440×921). If it is
+missing the renderer leaves the slot empty and warns. Per the Toki README he never sits on compliance copy.
+Reel audio: `"audio": "pad"` in post.json adds a quiet A-major pad synthesised by ffmpeg (no third-party music).

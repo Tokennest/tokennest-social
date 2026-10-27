@@ -29,3 +29,12 @@ test('slideHtml() puts the regulatory line on the closing slide and rejects unkn
   assert.match(html, /7 \/ 7/);
   assert.throws(() => slideHtml({ kind: 'nope' }, { index: 0, total: 1 }), /unknown slide kind/);
 });
+
+test('reelSeconds() subtracts crossfade overlaps and padFilter() fades out at the end', async () => {
+  const { reelSeconds, padFilter } = await import('../tools/render.mjs');
+  assert.equal(reelSeconds(7, { secondsPerCard: 3.3, fade: 0.3 }).toFixed(1), '21.3');
+  assert.equal(reelSeconds(1, { secondsPerCard: 3.3, fade: 0.3 }), 3.3);
+  const f = padFilter(21.3);
+  assert.match(f, /d=21\.30/);
+  assert.match(f, /afade=t=out:st=19\.30:d=2/);
+});

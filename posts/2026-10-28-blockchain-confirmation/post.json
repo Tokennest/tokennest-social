@@ -1,7 +1,7 @@
 {
   "id": "2026-10-28-blockchain-confirmation",
-  "version": "v2",
-  "changes": "v2 (26 Oct 2026): restyled on brand kit v3; Toki slot on card 7. v1 (26 Oct 2026): first render from the Notion row (script unchanged since 15 Oct).",
+  "version": "v3",
+  "changes": "v3 (26 Oct 2026): Toki thumbs-up on card 7; quiet synthesised pad audio (no third-party music). v2 (26 Oct 2026): restyled on brand kit v3; Toki slot on card 7. v1 (26 Oct 2026): first render from the Notion row (script unchanged since 15 Oct).",
   "source": "https://app.notion.com/p/3fa3e422d82c8103be8dfc77c4805f6c",
   "postDate": "2026-10-28",
   "size": {
@@ -10,7 +10,8 @@
   },
   "reel": {
     "secondsPerCard": 3.3,
-    "fade": 0.3
+    "fade": 0.3,
+    "audio": "pad"
   },
   "still": {
     "fromSlide": 3,

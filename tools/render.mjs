@@ -172,10 +172,21 @@ async function renderPost(dir) {
   return { id: post.id, version: post.version, slides: files.length, warnings };
 }
 
-// Crossfade the card PNGs into an H.264 MP4 (silent; add audio in the publishing tool).
-function renderReel(files, { secondsPerCard, fade }, outFile) {
+/** Reel length in seconds: every card, minus the crossfade overlaps. */
+export const reelSeconds = (cards, { secondsPerCard, fade }) => cards * secondsPerCard - (cards - 1) * fade;
+
+// Quiet sustained A-major pad, synthesised by ffmpeg, so the Reel carries no third-party audio.
+export function padFilter(seconds) {
+  const chord = [220, 277.18, 329.63].map((f) => `sin(2*PI*${f}*t)`).join('+');
+  return `aevalsrc=0.06*(${chord}):s=48000:d=${seconds.toFixed(2)},afade=t=in:d=1.5,afade=t=out:st=${(seconds - 2).toFixed(2)}:d=2`;
+}
+
+// Crossfade the card PNGs into an H.264 MP4, with the synthesised pad when reel.audio === 'pad'.
+function renderReel(files, reel, outFile) {
+  const { secondsPerCard, fade } = reel;
   const args = ['-y', '-loglevel', 'error'];
   for (const f of files) args.push('-loop', '1', '-t', String(secondsPerCard), '-framerate', '30', '-i', f);
+  if (reel.audio === 'pad') args.push('-f', 'lavfi', '-i', padFilter(reelSeconds(files.length, reel)));
   let chain = '';
   let prev = '[0:v]';
   for (let i = 1; i < files.length; i++) {
@@ -183,7 +194,9 @@ function renderReel(files, { secondsPerCard, fade }, outFile) {
     chain += `${prev}[${i}:v]xfade=transition=fade:duration=${fade}:offset=${((secondsPerCard - fade) * i).toFixed(2)}${label};`;
     prev = label;
   }
-  args.push('-filter_complex', chain.replace(/;$/, ''), '-map', '[v]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', outFile);
+  args.push('-filter_complex', chain.replace(/;$/, ''), '-map', '[v]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30');
+  if (reel.audio === 'pad') args.push('-map', `${files.length}:a`, '-c:a', 'aac', '-b:a', '128k', '-shortest');
+  args.push(outFile);
   execFileSync('ffmpeg', args, { stdio: 'inherit' });
 }
 
