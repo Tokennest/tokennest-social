@@ -1,0 +1,7 @@
+# Clawness — per-machine session state (memory.md and rules/ stay shared)
+.clawness/*
+!.clawness/memory.md
+!.clawness/rules/
+
+# Claude Code settings written by a local plugin install (points at a machine-local path)
+.claude/settings.json
