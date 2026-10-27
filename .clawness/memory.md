@@ -9,3 +9,4 @@
 
 ## Lessons
 - Brand kit v3 = Drive folder 1wzVeznNrao2adNaiU_k4X5VVGRkCPxWR; Toki PNGs too big for Drive MCP, add by hand.
+- Live posts: 02:58 PT prep writes claude/publish-queue-*.md (Claude project); 08:00 PT run posts Notion rows = Scheduled.
